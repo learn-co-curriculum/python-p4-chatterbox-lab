@@ -11,6 +11,7 @@ sqlalchemy-serializer = "*"
 faker = "*"
 pytest = "*"
 ipdb = "*"
+flask-cors = "*"
 
 [dev-packages]
 
