@@ -25,8 +25,9 @@ def messages():
         )
     
     elif request.method == 'POST':
+        data = request.get_json()
         message = Message(
-            body=request.args['value'],
+            body=data['body'],
         )
 
         db.session.add(message)
@@ -44,8 +45,9 @@ def messages_by_id(id):
     message = Message.query.filter_by(id=id).first()
 
     if request.method == 'PATCH':
-        for attr in request.args:
-            setattr(message, attr, request.form[attr])
+        data = request.get_json()
+        for attr in data:
+            setattr(message, attr, data[attr])
             
         db.session.add(message)
         db.session.commit()

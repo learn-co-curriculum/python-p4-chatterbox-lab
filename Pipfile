@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 flask = "*"
-flask-migrate = "*"
 flask-sqlalchemy = "*"
+flask-migrate = "*"
 sqlalchemy-serializer = "*"
 faker = "*"
-pytest = "*"
 ipdb = "*"
+pytest = "*"
 flask-cors = "*"
 
 [dev-packages]
