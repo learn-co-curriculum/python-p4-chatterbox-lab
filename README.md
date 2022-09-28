@@ -148,9 +148,6 @@ once you have everything set up. You can run your Flask server from the
 $ flask run
 ```
 
-You'll need to change the `fetch` requests in React to use
-`http://localhost:5000` as well.
-
 ### Model
 
 Start by generating a `Message` model and the necessary migration code to create
