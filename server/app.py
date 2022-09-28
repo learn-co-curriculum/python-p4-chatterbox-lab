@@ -7,7 +7,7 @@ from models import db, Message
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.json.compact = False
 
 CORS(app)
 migrate = Migrate(app, db)
@@ -28,6 +28,7 @@ def messages():
         data = request.get_json()
         message = Message(
             body=data['body'],
+            username=data['username']
         )
 
         db.session.add(message)

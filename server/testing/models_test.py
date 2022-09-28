@@ -1,5 +1,4 @@
 from datetime import datetime
-from types import NoneType
 
 from app import app
 from models import db, Message
@@ -18,6 +17,7 @@ class TestMessage:
         db.session.commit()
 
     def test_has_correct_columns(self):
+        '''has columns for message body, username, and creation time.'''
         with app.app_context():
 
             hello_from_liza = Message(
