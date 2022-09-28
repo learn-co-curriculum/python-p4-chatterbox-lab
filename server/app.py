@@ -14,57 +14,10 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
-@app.route('/messages', methods=['GET', 'POST'])
+@app.route('/messages')
 def messages():
-    if request.method == 'GET':
-        messages = Message.query.order_by('created_at').all()
+    return ''
 
-        response = make_response(
-            jsonify([message.to_dict() for message in messages]),
-            200,
-        )
-    
-    elif request.method == 'POST':
-        data = request.get_json()
-        message = Message(
-            body=data['body'],
-            username=data['username']
-        )
-
-        db.session.add(message)
-        db.session.commit()
-
-        response = make_response(
-            jsonify(message.to_dict()),
-            201,
-        )
-
-    return response
-
-@app.route('/messages/<int:id>', methods=['PATCH', 'DELETE'])
+@app.route('/messages/<int:id>')
 def messages_by_id(id):
-    message = Message.query.filter_by(id=id).first()
-
-    if request.method == 'PATCH':
-        data = request.get_json()
-        for attr in data:
-            setattr(message, attr, data[attr])
-            
-        db.session.add(message)
-        db.session.commit()
-
-        response = make_response(
-            jsonify(message.to_dict()),
-            200,
-        )
-
-    elif request.method == 'DELETE':
-        db.session.delete(message)
-        db.session.commit()
-
-        response = make_response(
-            jsonify({'deleted': True}),
-            200,
-        )
-
-    return response
+    return ''
