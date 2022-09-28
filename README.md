@@ -13,8 +13,8 @@ you can get a taste of full-stack development!
 
 This project is separated into two applications:
 
-- A React frontend, in the `chatterbox-client` directory.
-- A Flask backend, in the `chatterbox-server` directory
+- A React frontend, in the `client` directory.
+- A Flask backend, in the `server` directory
 
 All of the features for the React frontend are built out, and we have a simple
 `json-server` API that you can run to see what the completed version of the app
@@ -111,10 +111,10 @@ To give that permission, any server that we want to make requests to using
 JavaScript must add some special **headers** to the response that tell the
 browser that the request was permitted.
 
-Here's what the CORS configuration looks like (in the `app/app.py` file):
+Here's what the CORS configuration looks like (in the `server/app.py` file):
 
 ```py
-# app/app.py
+# server/app.py
 
 from flask import Flask
 from flask_cors import CORS
@@ -136,16 +136,16 @@ next time you see them, you'll know what this means!
 
 ## Instructions
 
-Work through the deliverables below. There are tests in the `chatterbox-server`
-folder. Because of this lab's project structure, running `learn test` won't work
-— instead, you'll need to `cd` into the `chatterbox-server` directory and run
-`rspec` (or `bundle exec rspec`) to run the tests for the Flask backend.
+Work through the deliverables below. There are tests in the `server`
+folder. You'll need to `cd` into the `server` directory and run
+`pytest -x` to run the tests for the Flask backend until the first failure.
 
 Make sure to try out your routes from the React frontend application as well
-once you have everything set up. You can run your Flask server with:
+once you have everything set up. You can run your Flask server from the
+`server/` directory with:
 
 ```console
-$ bundle exec rake server
+$ flask run
 ```
 
 You'll need to change the `fetch` requests in React to use
@@ -162,7 +162,7 @@ messages with the following attributes:
 - "updated_at": DateTime.
 
 After creating the model and migrations, run the migrations and use the provided
-`seeds.py` file to seed the database:
+`seed.py` file to seed the database:
 
 ```console
 $ flask db revision --autogenerate -m'your message'
