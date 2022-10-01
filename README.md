@@ -145,6 +145,12 @@ once you have everything set up. You can run your Flask server from the
 `server/` directory with:
 
 ```console
+$ python app.py
+```
+
+Or, if you have configured your Flask environment:
+
+```console
 $ flask run
 ```
 

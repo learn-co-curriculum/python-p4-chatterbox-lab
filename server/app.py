@@ -21,3 +21,6 @@ def messages():
 @app.route('/messages/<int:id>')
 def messages_by_id(id):
     return ''
+
+if __name__ == '__main__':
+    app.run(port=5555)
