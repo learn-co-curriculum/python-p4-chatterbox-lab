@@ -132,6 +132,32 @@ next time you see them, you'll know what this means!
 > but not others. You can specify these with the optional `resources` argument
 > or by instead using the `@cross_origin()` decorator on specific routes.**
 
+### Different Types of Input
+
+In previous lessons, we have used **form** data to retrieve input from the
+client. This is the typical approach we would take to this task, but some sites
+traffic in raw JSON instead. We're going to give that a shot here.
+
+With the client running, navigate to Postman and point it to `localhost:3000`.
+Instead of using "Params", we will click on "raw" and select "JSON" from the
+dropdown menu on the right.
+
+![An empty text box beginning with a 1. Options for input type are above the
+text box, including "form-data" and "raw".](
+    https://curriculum-content.s3.amazonaws.com/python/raw-json-postman.png)
+
+From here, you can start to add messages:
+
+```json
+{
+  "body":"Hello, World!",
+  "username":"Ian"
+}
+```
+
+When your Flask application is up and running, you can retrieve this data as a
+dictionary with the `request.get_json()` method.
+
 ***
 
 ## Instructions
