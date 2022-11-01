@@ -139,8 +139,8 @@ client. This is the typical approach we would take to this task, but some sites
 traffic in raw JSON instead. We're going to give that a shot here.
 
 With the client running, navigate to Postman and point it to `localhost:3000`.
-Instead of using "Params", we will click on "raw" and select "JSON" from the
-dropdown menu on the right.
+Instead of using "Params", we will click on "Body", select "raw" from the radio
+buttons, then select "JSON" from the dropdown menu on the right.
 
 ![An empty text box beginning with a 1. Options for input type are above the
 text box, including "form-data" and "raw".](
