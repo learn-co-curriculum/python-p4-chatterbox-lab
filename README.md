@@ -14,7 +14,7 @@ you can get a taste of full-stack development!
 This project is separated into two applications:
 
 - A React frontend, in the `client` directory.
-- A Flask backend, in the `server` directory
+- A Flask backend, in the `server` directory.
 
 All of the features for the React frontend are built out, and we have a simple
 `json-server` API that you can run to see what the completed version of the app
@@ -65,9 +65,9 @@ backend.
 
 ## Backend Setup
 
-In another terminal, `cd` into the `chatterbox-server` directory, and run
-`pipenv install && pipenv shell` to install the dependencies and enter your
-virtual environment.
+In another terminal, run `pipenv install; pipenv shell` to install the
+dependencies and enter your virtual environment, then `cd` into the `server`
+directory to start running your Python code.
 
 In this directory, you're given a bare-bones template for a Flask API
 application. It should look familiar to other Flask labs you've seen and has
