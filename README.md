@@ -187,7 +187,7 @@ messages with the following attributes:
 
 - "body": String.
 - "username": String.
-- "created_at": String.
+- "created_at": DateTime.
 - "updated_at": DateTime.
 
 After creating the model and migrations, run the migrations and use the provided
