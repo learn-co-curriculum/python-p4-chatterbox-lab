@@ -7,11 +7,7 @@ metadata = MetaData(naming_convention={
 })
 
 db = SQLAlchemy(metadata=metadata)
-
-# "body": String.
-# "username": String.
-# "created_at": DateTime.
-# "updated_at": DateTime.
+# db = SQLAlchemy()
 
 class Message(db.Model, SerializerMixin):
     __tablename__ = 'messages'
