@@ -7,9 +7,9 @@
 ## Introduction
 
 So far, we've seen how to build a Flask API and perform various CRUD actions
-using SQLAlchemy. In this lab, you'll work on creating an API in Flask once
-more — but this time, you'll also have code for a React frontend application, so
-you can get a taste of full-stack development!
+using SQLAlchemy. In this lab, you'll work on creating an API in Flask once more
+— but this time, you'll also have code for a React frontend application, so you
+can get a taste of full-stack development!
 
 This project is separated into two applications:
 
@@ -18,9 +18,8 @@ This project is separated into two applications:
 
 All of the features for the React frontend are built out, and we have a simple
 `json-server` API that you can run to see what the completed version of the app
-will look like. Your main goal with this lab is to build out a Flask API
-server to replace `json-server`, so most of your coding will be done in the
-backend.
+will look like. Your main goal with this lab is to build out a Flask API server
+to replace `json-server`, so most of your coding will be done in the backend.
 
 ***
 
@@ -48,24 +47,26 @@ interact with the demo application to get a sense of its features.
 Here's a demo of the what the React app should look like when using
 `json-server` as the API:
 
-![Chatterbox screenshot 1](https://curriculum-content.s3.amazonaws.com/python/chatterbox_screenshot_1.png
+![Chatterbox screenshot
+1](https://curriculum-content.s3.amazonaws.com/python/chatterbox_screenshot_1.png
 "A screenshot of the chatterbox app in dark mode. The header is a purple bar
 with 'Chatterbox' in white text. White messages are displayed below their
-associated usernames on a black background beneath the header. There is a
-space to enter new messages below this black box.")
+associated usernames on a black background beneath the header. There is a space
+to enter new messages below this black box.")
 
-![Chatterbox screenshot 2](https://curriculum-content.s3.amazonaws.com/python/chatterbox-screenshot_2.png
-"A screenshot of the chatterbox app in light mode. The header is a pink bar
-with 'Chatterbox' in black text. Black messages are displayed below their
-associated usernames on a white background beneath the header. There is a
-space to enter new messages below this black box. A message by user 'Duane'
-is in the process of being edited.")
+![Chatterbox screenshot
+2](https://curriculum-content.s3.amazonaws.com/python/chatterbox-screenshot_2.png
+"A screenshot of the chatterbox app in light mode. The header is a pink bar with
+'Chatterbox' in black text. Black messages are displayed below their associated
+usernames on a white background beneath the header. There is a space to enter
+new messages below this black box. A message by user 'Duane' is in the process
+of being edited.")
 
-Take a look at the components provided in the `client` directory.
-Explore the code and pay special attention to where the React application is
-interacting with `json-server`. Where are the `fetch` requests being written?
-What routes are needed to handle these requests? What HTTP verbs? What data is
-being sent in the body of the requests?
+Take a look at the components provided in the `client` directory. Explore the
+code and pay special attention to where the React application is interacting
+with `json-server`. Where are the `fetch` requests being written? What routes
+are needed to handle these requests? What HTTP verbs? What data is being sent in
+the body of the requests?
 
 Once you've familiarized yourself yourself with the code, turn off `json-server`
 with `control + c` in the terminal where we ran `npm run server` (you can keep
@@ -81,8 +82,8 @@ dependencies and enter your virtual environment, then `cd` into the `server`
 directory to start running your Python code.
 
 In this directory, you're given a bare-bones template for a Flask API
-application. It should look familiar to other Flask labs you've seen and has
-all the code set up so you can focus on building out your model and API routes.
+application. It should look familiar to other Flask labs you've seen and has all
+the code set up so you can focus on building out your model and API routes.
 
 You'll be responsible for:
 
@@ -109,8 +110,8 @@ opaque response serves your needs, set the request's mode to 'no-cors' to fetch
 the resource with CORS disabled.
 ```
 
-The reason for this warning message is due to a browser security feature known as
-[Cross-Origin Resource Sharing (CORS)][cors mdn]. When we use JavaScript from
+The reason for this warning message is due to a browser security feature known
+as [Cross-Origin Resource Sharing (CORS)][cors mdn]. When we use JavaScript from
 one domain (aka origin) to make a request to a server on a different domain, the
 default behavior of the browser is to block those requests from going through.
 
@@ -173,9 +174,9 @@ dictionary with the `request.get_json()` method.
 
 ## Instructions
 
-Work through the deliverables below. There are tests in the `server`
-folder. You'll need to `cd` into the `server` directory and run
-`pytest -x` to run the tests for the Flask backend until the first failure.
+Work through the deliverables below. There are tests in the `server` folder.
+You'll need to `cd` into the `server` directory and run `pytest -x` to run the
+tests for the Flask backend until the first failure.
 
 Make sure to try out your routes from the React frontend application as well
 once you have everything set up. You can run your Flask server from the
@@ -200,6 +201,9 @@ messages with the following attributes:
 - "username": String.
 - "created_at": DateTime.
 - "updated_at": DateTime.
+- Don't forget to add default values for "created_at" and "updated_at"!
+  - (Hint - we discussed this in the Phase 3 Many-to-Many Relationships reading
+    and gave an example in the Phase 4 Building a Get API Reading.)
 
 After creating the model and migrations, run the migrations and use the provided
 `seed.py` file to seed the database:
@@ -229,8 +233,10 @@ Build out the following routes to handle the necessary CRUD actions:
 - [Flask - Pallets](https://flask.palletsprojects.com/en/2.2.x/)
 - [Cross-Origin Resource Sharing - Mozilla][cors mdn]
 - [Flask-CORS][flask-cors]
-- [flask.json.jsonify Example Code - Full Stack Python](https://www.fullstackpython.com/flask-json-jsonify-examples.html)
-- [SQLAlchemy-serializer - PyPI](https://pypi.org/project/SQLAlchemy-serializer/)
+- [flask.json.jsonify Example Code - Full Stack
+  Python](https://www.fullstackpython.com/flask-json-jsonify-examples.html)
+- [SQLAlchemy-serializer -
+  PyPI](https://pypi.org/project/SQLAlchemy-serializer/)
 
 [cors mdn]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 [flask-cors]: https://flask-cors.readthedocs.io/en/latest/
