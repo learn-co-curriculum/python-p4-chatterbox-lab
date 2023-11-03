@@ -21,7 +21,7 @@ All of the features for the React frontend are built out, and we have a simple
 will look like. Your main goal with this lab is to build out a Flask API server
 to replace `json-server`, so most of your coding will be done in the backend.
 
-***
+---
 
 ## Frontend Setup
 
@@ -41,6 +41,11 @@ using `json-server`. Next, run this in a new terminal:
 $ npm start
 ```
 
+NOTE: If you get an error message about "Error: digital envelope
+routines::unsupported", type the following in your terminal:
+`export NODE_OPTIONS=--openssl-legacy-provider`, then try starting the client
+again.
+
 Then visit [http://localhost:3000](http://localhost:3000) in the browser and
 interact with the demo application to get a sense of its features.
 
@@ -48,15 +53,13 @@ Here's a demo of the what the React app should look like when using
 `json-server` as the API:
 
 ![Chatterbox screenshot
-1](https://curriculum-content.s3.amazonaws.com/python/chatterbox_screenshot_1.png
-"A screenshot of the chatterbox app in dark mode. The header is a purple bar
+1](https://curriculum-content.s3.amazonaws.com/python/chatterbox_screenshot_1.png "A screenshot of the chatterbox app in dark mode. The header is a purple bar
 with 'Chatterbox' in white text. White messages are displayed below their
 associated usernames on a black background beneath the header. There is a space
 to enter new messages below this black box.")
 
 ![Chatterbox screenshot
-2](https://curriculum-content.s3.amazonaws.com/python/chatterbox-screenshot_2.png
-"A screenshot of the chatterbox app in light mode. The header is a pink bar with
+2](https://curriculum-content.s3.amazonaws.com/python/chatterbox-screenshot_2.png "A screenshot of the chatterbox app in light mode. The header is a pink bar with
 'Chatterbox' in black text. Black messages are displayed below their associated
 usernames on a white background beneath the header. There is a space to enter
 new messages below this black box. A message by user 'Duane' is in the process
@@ -73,7 +76,7 @@ with `control + c` in the terminal where we ran `npm run server` (you can keep
 the React application running, though). Next, let's see what we have in the
 backend.
 
-***
+---
 
 ## Backend Setup
 
@@ -81,13 +84,27 @@ In another terminal, run `pipenv install; pipenv shell` to install the
 dependencies and enter your virtual environment, then `cd` into the `server`
 directory to start running your Python code.
 
+```console
+pipenv install  && pipenv shell
+cd server
+```
+
 In this directory, you're given a bare-bones template for a Flask API
 application. It should look familiar to other Flask labs you've seen and has all
 the code set up so you can focus on building out your model and API routes.
 
+Note the database has not been created, nor have any migrations been performed.
+Initialize the database for the bare-bones model:
+
+```console
+flask db init
+flask db revision --autogenerate -m'initialize model'
+$ flask db upgrade
+```
+
 You'll be responsible for:
 
-- Creating a model and migrations.
+- Implementing the `Message` model and performing migrations.
 - Setting up the necessary routes to handle requests.
 - Performing CRUD actions with SQLAlchemy.
 - Sending the necessary JSON data in the responses.
@@ -155,22 +172,21 @@ Instead of using "Params", we will click on "Body", select "raw" from the radio
 buttons, then select "JSON" from the dropdown menu on the right.
 
 ![An empty text box beginning with a 1. Options for input type are above the
-text box, including "form-data" and "raw".](
-    https://curriculum-content.s3.amazonaws.com/python/raw-json-postman.png)
+text box, including "form-data" and "raw".](https://curriculum-content.s3.amazonaws.com/python/raw-json-postman.png)
 
 From here, you can start to add messages:
 
 ```json
 {
-  "body":"Hello, World!",
-  "username":"Ian"
+  "body": "Hello, World!",
+  "username": "Ian"
 }
 ```
 
 When your Flask application is up and running, you can retrieve this data as a
 dictionary with the `request.get_json()` method.
 
-***
+---
 
 ## Instructions
 
@@ -194,7 +210,7 @@ $ flask run
 
 ### Model
 
-Start by generating a `Message` model and the necessary migration code to create
+Start by updating the `Message` model and the necessary migration code to create
 messages with the following attributes:
 
 - "body": String.
@@ -226,17 +242,15 @@ Build out the following routes to handle the necessary CRUD actions:
   and returns the updated message as JSON.
 - `DELETE /messages/<int:id>`: deletes the message from the database.
 
-***
+---
 
 ## Resources
 
 - [Flask - Pallets](https://flask.palletsprojects.com/en/2.2.x/)
 - [Cross-Origin Resource Sharing - Mozilla][cors mdn]
 - [Flask-CORS][flask-cors]
-- [flask.json.jsonify Example Code - Full Stack
-  Python](https://www.fullstackpython.com/flask-json-jsonify-examples.html)
-- [SQLAlchemy-serializer -
-  PyPI](https://pypi.org/project/SQLAlchemy-serializer/)
+- [flask.json.jsonify Example Code - Full Stack Python](https://www.fullstackpython.com/flask-json-jsonify-examples.html)
+- [SQLAlchemy-serializer - PyPI](https://pypi.org/project/SQLAlchemy-serializer/)
 
 [cors mdn]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 [flask-cors]: https://flask-cors.readthedocs.io/en/latest/
