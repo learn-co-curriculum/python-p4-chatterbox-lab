@@ -18,11 +18,8 @@ db.init_app(app)
 def messages():
     if request.method == 'GET':
         messages = Message.query.order_by('created_at').all()
-
-        response = make_response(
-            jsonify([message.to_dict() for message in messages]),
-            200,
-        )
+        
+        return make_response([message.to_dict() for message in messages],200 )
     
     elif request.method == 'POST':
         data = request.get_json()
@@ -34,12 +31,8 @@ def messages():
         db.session.add(message)
         db.session.commit()
 
-        response = make_response(
-            jsonify(message.to_dict()),
-            201,
-        )
+        return  make_response(message.to_dict(),  201,)
 
-    return response
 
 @app.route('/messages/<int:id>', methods=['PATCH', 'DELETE'])
 def messages_by_id(id):
@@ -53,18 +46,10 @@ def messages_by_id(id):
         db.session.add(message)
         db.session.commit()
 
-        response = make_response(
-            jsonify(message.to_dict()),
-            200,
-        )
+        return make_response(message.to_dict(),200 )
 
     elif request.method == 'DELETE':
         db.session.delete(message)
         db.session.commit()
 
-        response = make_response(
-            jsonify({'deleted': True}),
-            200,
-        )
-
-    return response
+        return make_response( {'deleted': True} , 200)
