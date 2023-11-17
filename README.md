@@ -94,13 +94,6 @@ application. It should look familiar to other Flask labs you've seen and has all
 the code set up so you can focus on building out your model and API routes.
 
 Note the database has not been created, nor have any migrations been performed.
-Initialize the database for the bare-bones model:
-
-```console
-flask db init
-flask db revision --autogenerate -m'initialize model'
-$ flask db upgrade
-```
 
 You'll be responsible for:
 
@@ -210,8 +203,8 @@ $ flask run
 
 ### Model
 
-Start by updating the `Message` model and the necessary migration code to create
-messages with the following attributes:
+Start by generating the `Message` model and the necessary migration code to
+create messages with the following attributes:
 
 - "body": String.
 - "username": String.
@@ -221,10 +214,11 @@ messages with the following attributes:
   - (Hint - we discussed this in the Phase 3 Many-to-Many Relationships reading
     and gave an example in the Phase 4 Building a Get API Reading.)
 
-After creating the model and migrations, run the migrations and use the provided
-`seed.py` file to seed the database:
+Once you've created the model, you should initialize the database, generate and
+run the migrations, and use the provided `seed.py` file to seed the database:
 
 ```console
+$ flask db init
 $ flask db revision --autogenerate -m'your message'
 $ flask db upgrade
 $ python seed.py
