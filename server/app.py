@@ -19,13 +19,13 @@ def messages():
     messages=Message.query.order_by(Message.created_at.asc()).all
     return jsonify([message.serialize() for message in messages])
 
-app.route('/messages',methods=['POST'])
-def create_message():
-    data = request.get_json()
-    new_message = Message(body=data['body'], username=data['username'])
-    db.session.add(new_message)
-    db.session.commit()
-    return jsonify(new_message.serialize())
+# app.route('/messages',methods=['POST'])
+# def create_message():
+#     data = request.get_json()
+#     new_message = Message(body=data['body'], username=data['username'])
+#     db.session.add(new_message)
+#     db.session.commit()
+#     return jsonify(new_message.serialize())
 
 
 @app.route('/messages/<int:id>', methods=['PATCH'])
