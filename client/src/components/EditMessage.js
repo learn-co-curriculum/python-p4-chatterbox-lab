@@ -6,7 +6,7 @@ function EditMessage({ id, body, onUpdateMessage }) {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch(`/${id}`, {
+    fetch(`/messages/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
