@@ -46,6 +46,13 @@ routines::unsupported", type the following in your terminal:
 `export NODE_OPTIONS=--openssl-legacy-provider`, then try starting the client
 again.
 
+NOTE: If you will be running your flask app on a port different from 4000, paste this new port in the "proxy" of the `package.json` file and rerun:
+
+```console
+$ npm install
+$ npm start
+```
+
 Then visit [http://localhost:3000](http://localhost:3000) in the browser and
 interact with the demo application to get a sense of its features.
 
