@@ -219,7 +219,7 @@ run the migrations, and use the provided `seed.py` file to seed the database:
 
 ```console
 $ flask db init
-$ flask db revision --autogenerate -m'your message'
+$ flask db migrate -m "your message"
 $ flask db upgrade
 $ python seed.py
 ```
